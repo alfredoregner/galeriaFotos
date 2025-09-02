@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{galeria.title}} - Minhas Receitas</title> <!-- { # Título Dinâmico # } -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body{
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-gray-900 text-white p-6 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center">
+            <div class="flex items-center mb-4 sm:mb-0">
+                <div class="text-4xl mr-4">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h1 class="text-4xl font-bold text-center sm:text-left">
+                    Marcas
+                </h1>
+            </div>
+            <nav class="mt-4 sm:mt-0">
+                <a href="{% url 'home' %}" class="text-gray-300 hover:text-white transition duration-300 ease-in-out"> Voltar para Home </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
+        <div class="flex flex-row md:flex-row gap-8">
+            <!-- {# Imagem da Receita #} -->
+            {% if galeria.image %}
+                <div class="md:w-1/2">
+                    <img src="{{ galeria.image.url }}" alt="[Imagem de {{ galeria.title }}]" class="w-full h-auto object-cover rounded-lg shadow-md">
+                </div>
+            {% endif %}
+            {# Veículos #}
+                <div class="md:w-1/2">
+                    <img src="{{ galeria.image1.url }}" alt="[Imagem de {{ galeria.image1 }}]" class="w-full h-auto object-cover rounded-lg shadow-md">
+                </div>   
+                <div class="md:w-1/2">
+                    <!-- <h2 class="text-4xl font-bold text-gray-900 mb-4">{{ galeria.car2 }}</h2> -->
+                    <img src="{{ galeria.image2.url }}" alt="[Imagem de {{ galeria.image2 }}]" class="w-full h-auto object-cover rounded-lg shadow-md">
+                    <!-- <h3 class="text-2xl font-semibold text-gray-800 mb-2">Preço: {{ galeria.description2 }}</h3> -->
+                </div>  
+                <div class="md:w-1/2">
+                    <!-- <h2 class="text-4xl font-bold text-gray-900 mb-4">{{ galeria.car3 }}</h2> -->
+                    <img src="{{ galeria.image3.url }}" alt="[Imagem de {{ galeria.image3 }}]" class="w-full h-auto object-cover rounded-lg shadow-md">
+                    <!-- <h3 class="text-2xl font-semibold text-gray-800 mb-2">Preço: {{ galeria.description3 }}</h3> -->
+                </div>   
+                <div class="flex flex-col">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">{{ galeria.car }}</h2>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Preço: {{ galeria.description1 }}</h3>
+                </div>
+                
+        </div>
+        <div class="mt-8 text-center">
+            <a href="{% url 'home' %}" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition durantion-300 ease-in-out shadow-lg">
+                &larr; Voltar para a Lista de Marcas
+            </a>
+        </div>
+    </main>
+    <footer class="mt-12 p-6 text-center text-gray-600">
+        <p>&copy; 2025 Marcas de Carros. Todos os direitos reservados a Alfredo</p>
+    </footer>
+</body>
+</html>
