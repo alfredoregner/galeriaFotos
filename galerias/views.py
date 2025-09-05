@@ -3,7 +3,8 @@ from .models import Galeria
 
 
 def home(request):
-    return render(request, 'galerias/home.html')
+    galerias=Galeria.objects.all()
+    return render(request, 'galerias/home.html', {'galerias':galerias})
 
 def galeria_detail(request, id):
     galeria = get_object_or_404(Galeria, pk = id)
